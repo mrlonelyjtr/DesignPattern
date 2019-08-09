@@ -28,20 +28,18 @@ public class Directory extends Entry {
     }
 
     @Override
-    protected void printList(String prefix) {
-        System.out.println(prefix + "/" + this);
-
-        Iterator it = directory.iterator();
-        while (it.hasNext()) {
-            Entry entry = (Entry) it.next();
-            entry.printList(prefix + "/" + name);
-        }
+    public Entry add(Entry entry) {
+        directory.add(entry);
+        return this;
     }
 
     @Override
-    public Entry add(Entry entry) {
-        entry.parent = this;
-        directory.add(entry);
-        return this;
+    public Iterator iterator() {
+        return directory.iterator();
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visit(this);
     }
 }
