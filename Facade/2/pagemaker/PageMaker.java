@@ -12,7 +12,7 @@ public class PageMaker {
         try {
             HtmlWriter writer = new HtmlWriter(new FileWriter(filename));
             writer.title("Link page");
-            Properties mailprop = Database.getProperties("./src/maildata");
+            Properties mailprop = Database.getProperties("./xxx/maildata");
             Enumeration en = mailprop.propertyNames();
             while (en.hasMoreElements()) {
                 String mailaddr = (String) en.nextElement();
